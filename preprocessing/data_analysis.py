@@ -2,7 +2,7 @@ import os
 import cv2
 #from utils import get_area, plot_area_distribution
 from data_loader import DataLoader
-
+import matplotlib.pyplot as plt
 
 
 dl = DataLoader()
@@ -19,5 +19,10 @@ for img_path, lbl_path in zip(img_path_list, label_path_list):
         if not first_char:
             num_empty += 1
             
-print(f"Number of empty labels: {num_empty}\nTotal labels: {len(label_path_list)}")
-    
+
+print(f"Number of empty labels: {num_empty}\
+      \nTotal labels: {len(label_path_list)}\
+      \nPercentage: {num_empty*100/len(label_path_list)}")
+
+
+os.makedirs(f'results', exist_ok=True)
