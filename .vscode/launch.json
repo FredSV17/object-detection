@@ -1,0 +1,33 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Data analysis",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "preprocessing/data_analysis.py",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Data cleaning",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "preprocessing/data_cleaning.py",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Load dataset",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "load_dt.py",
+            "console": "integratedTerminal",
+            "env": {
+                "KAGGLE_USERNAME": "fredvillar",
+                "KAGGLE_KEY": "c636aac4a298a6ef9b17e9362a69a47d"
+            }
+        }
+    ]
+}

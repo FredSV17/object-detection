@@ -1,1 +1,1 @@
-# object-detection
+# brain-tumor-detection

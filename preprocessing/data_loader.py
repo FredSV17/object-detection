@@ -1,15 +1,19 @@
 import os
-
+import cv2
 
 class DataLoader:
     def __init__(self):
-        self.base_path = "data"
-        self.images_train_path = os.path.join(self.base_path, "train/images")
-        self.labels_train_path = os.path.join(self.base_path, "train/labels")
+        base_path = "data/sagittal_t1wce_2_class"
+        # TODO: Code only works with sagittal images for now
+        images_train_path = os.path.join(base_path, "images/train")
+        labels_train_path = os.path.join(base_path, "labels/train")
+        images_test_path = os.path.join(base_path, "images/test")
+        labels_test_path = os.path.join(base_path, "labels/test")
         
-        self.image_path_list = sorted([f"{self.images_train_path}/{img}" for img in os.listdir(self.images_train_path) if img.endswith('.jpg')])
-        self.label_path_list = sorted([f"{self.labels_train_path}/{lbl}" for lbl in os.listdir(self.labels_train_path) if lbl.endswith('.txt')])
+        self.image_train_path_list = sorted([f"{images_train_path}/{img}" for img in os.listdir(images_train_path) if img.endswith('.jpg')])
+        self.label_train_path_list = sorted([f"{labels_train_path}/{lbl}" for lbl in os.listdir(labels_train_path) if lbl.endswith('.txt')])
+        self.image_test_path_list = sorted([f"{images_test_path}/{img}" for img in os.listdir(images_test_path) if img.endswith('.jpg')])
+        self.label_test_path_list = sorted([f"{labels_test_path}/{lbl}" for lbl in os.listdir(labels_test_path) if lbl.endswith('.txt')])
     
-    def get_path_list(self):
-        return self.image_path_list, self.label_path_list 
-    
+    def get_train_path_list(self):
+        return [self.image_train_path_list, self.label_train_path_list],[self.image_test_path_list, self.label_test_path_list]
